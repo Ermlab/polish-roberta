@@ -74,7 +74,8 @@ class TaskTrainer(object):
             "--log-format", "simple",
             "--log-interval", "5",
             "--save-dir", checkpoint_path,
-            "--no-epoch-checkpoints"
+            "--no-epoch-checkpoints",
+            "--tensorboard-logdir", os.path.join(checkpoint_path, "tensorboard_log")
         ]
         if self.task.spec().no_dev_set:
             cmd.extend([
